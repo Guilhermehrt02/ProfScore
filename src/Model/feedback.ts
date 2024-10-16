@@ -1,8 +1,10 @@
 class Feedback {
     private feedback: string;
+    private student: Student;
   
-    constructor(feedback: string) {
+    constructor(feedback: string, student: Student) {
       this.feedback = feedback;
+      this.student = student;
     }
   
     // Método para printar o feedback

@@ -1,12 +1,14 @@
 class Professor {
     private id: string;
     private name: string;
-    private avaliacao: number;
+    private score: number;
+    private ratings: ProfessorRating[];
   
-    constructor(id: string, name: string, avaliacao: number) {
+    constructor(id: string, name: string, score: number) {
       this.id = id;
       this.name = name;
-      this.avaliacao = avaliacao;
+      this.score = score;
+      this.ratings = [];
     }
   
     // Getters
@@ -18,8 +20,12 @@ class Professor {
       return this.name;
     }
   
-    public getAvaliacao(): number {
-      return this.avaliacao;
+    public getscore(): number {
+      return this.score;
+    }
+
+    public getRatings(): ProfessorRating[] {
+      return this.ratings;
     }
   
     // Setters
@@ -31,8 +37,9 @@ class Professor {
       this.name = name;
     }
   
-    public setAvaliacao(avaliacao: number): void {
-      this.avaliacao = avaliacao;
+    public setscore(score: number): void {
+      this.score = score;
     }
+
 }
   

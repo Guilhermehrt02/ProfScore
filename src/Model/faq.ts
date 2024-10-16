@@ -1,17 +1,17 @@
 class Faq {
-    private titulo: string;
-    private texto: string;
+    private title: string;
+    private content: string;
   
-    constructor(titulo: string, texto: string) {
-      this.titulo = titulo;
-      this.texto = texto;
+    constructor(title: string, content: string) {
+      this.title = title;
+      this.content = content;
     }
   
-    // Método para obter todos os dados (título e texto)
-    public getAll(): { titulo: string; texto: string } {
+    // Método para obter todos os dados (título e content)
+    public getAll(): { title: string; content: string } {
       return {
-        titulo: this.titulo,
-        texto: this.texto
+        title: this.title,
+        content: this.content
       };
     }
 }

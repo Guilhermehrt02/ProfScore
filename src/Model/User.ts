@@ -1,4 +1,5 @@
-abstract class Usuario {
+abstract class User {
+
     protected static currentId: number = 1; // Variável estática para gerar IDs incrementais
     protected id: number;
     protected name: string;
@@ -6,7 +7,7 @@ abstract class Usuario {
     protected password: string;
   
     constructor(name: string, email: string, password: string) {
-      this.id = Usuario.currentId++; // Atribui um ID único e incrementa para o próximo usuário
+      this.id = User.currentId++; // Atribui um ID único e incrementa para o próximo usuário
       this.name = name;
       this.email = email;
       this.password = password;
