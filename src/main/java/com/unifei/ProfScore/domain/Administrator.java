@@ -1,17 +1,16 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.domain;
 
+import com.unifei.ProfScore.entity.ReportModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Administrator extends User {
 

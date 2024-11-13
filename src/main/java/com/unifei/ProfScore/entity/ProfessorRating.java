@@ -1,5 +1,6 @@
 package com.unifei.ProfScore.entity;
 
+import com.unifei.ProfScore.domain.Student;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

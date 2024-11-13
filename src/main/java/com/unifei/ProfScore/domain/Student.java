@@ -1,19 +1,18 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.domain;
 
+import com.unifei.ProfScore.entity.Feedback;
+import com.unifei.ProfScore.entity.ProfessorRating;
+import com.unifei.ProfScore.entity.UniversityRating;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-public class Student extends User{
+@Data
+public class Student extends User {
 
     @OneToMany(mappedBy = "student")
     private List<ProfessorRating> profRatings = new ArrayList<>();
