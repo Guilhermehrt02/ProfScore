@@ -37,4 +37,36 @@ public abstract class User {
         this.email = email;
         this.password = password;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public @NotBlank String getName() {
+        return name;
+    }
+
+    public void setName(@NotBlank String name) {
+        this.name = name;
+    }
+
+    public @NotBlank @Email String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@NotBlank @Email String email) {
+        this.email = email;
+    }
+
+    public @NotNull String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NotNull String password) {
+        this.password = password;
+    }
 }

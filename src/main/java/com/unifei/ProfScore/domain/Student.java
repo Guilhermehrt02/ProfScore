@@ -6,12 +6,16 @@ import com.unifei.ProfScore.entity.UniversityRating;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
+@Getter
+@NoArgsConstructor
 public class Student extends User {
 
     @OneToMany(mappedBy = "student")

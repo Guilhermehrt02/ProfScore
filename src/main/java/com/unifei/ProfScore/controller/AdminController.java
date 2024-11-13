@@ -3,6 +3,8 @@ package com.unifei.ProfScore.controller;
 import com.unifei.ProfScore.Service.AdminService;
 import com.unifei.ProfScore.domain.Administrator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,27 +17,42 @@ public class AdminController {
     private AdminService adminService;
 
     @GetMapping("/all")
-    public List<Administrator> getAll() {
-        return adminService.getAll();
+    public ResponseEntity<List<Administrator>> findAll() {
+
+        List<Administrator> administrators = adminService.getAll();
+
+        return ResponseEntity.ok(administrators);
     }
 
-    @GetMapping("/{email}")
-    public Administrator getByEmail(@PathVariable String email) {
-        return adminService.getId(Integer.valueOf(email)).orElse(null);
+    @GetMapping("/{id}")
+    public ResponseEntity<Administrator> getAdministratorById(@PathVariable int id) {
+
+        Administrator administrator = adminService.getById(id);
+
+        return ResponseEntity.ok(administrator);
     }
 
-    @PostMapping
-    public Administrator postAdmin(@RequestBody Administrator admin) {
-        return adminService.create(admin);
+    @PostMapping()
+    public ResponseEntity<Administrator> registerAdministrator(@RequestBody Administrator administrator) {
+
+        Administrator newAdministrator = adminService.register(administrator);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(newAdministrator);
     }
 
-    @PutMapping("/{email}")
-    public Administrator putAdmin(@PathVariable String email, @RequestBody Administrator admin) {
-        return adminService.update(admin);
+    @PutMapping("/{id}")
+    public ResponseEntity<Administrator> updateAdministrator(@PathVariable int id, @RequestBody Administrator updatedAdministrator) {
+
+        Administrator admin = adminService.update(id, updatedAdministrator);
+
+        return ResponseEntity.ok(admin);
     }
 
-    @DeleteMapping("/{email}")
-    public void deleteAdmin(@PathVariable String email) {
-        adminService.deleteId(Integer.valueOf(email));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteAdministrator(@PathVariable int id) {
+
+        adminService.delete(id);
+
+        return ResponseEntity.ok("Administrator has been successfully deleted.");
     }
 }
