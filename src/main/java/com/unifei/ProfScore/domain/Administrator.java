@@ -1,6 +1,6 @@
 package com.unifei.ProfScore.domain;
 
-import com.unifei.ProfScore.entity.ReportModel;
+import com.unifei.ProfScore.model.ReportModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Data;

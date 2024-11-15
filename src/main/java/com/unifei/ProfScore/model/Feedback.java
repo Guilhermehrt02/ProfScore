@@ -1,4 +1,4 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.model;
 
 import com.unifei.ProfScore.domain.Student;
 import jakarta.persistence.*;

@@ -1,6 +1,8 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,9 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@Table(
+        name = "university",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"name", "city"})
+)
 public class University {
 
     @Id
@@ -25,6 +30,7 @@ public class University {
     private String city;
 
     @OneToMany(mappedBy = "university")
+    @JsonIgnore // Evitar loop infinito
     private List<Course> courses = new ArrayList<>();
 
     @OneToMany(mappedBy = "university")
@@ -34,4 +40,5 @@ public class University {
         this.name = name;
         this.city = city;
     }
+
 }

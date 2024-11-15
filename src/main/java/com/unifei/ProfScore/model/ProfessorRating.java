@@ -1,4 +1,4 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.model;
 
 import com.unifei.ProfScore.domain.Student;
 import jakarta.persistence.*;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UniversityRating {
+public class ProfessorRating {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -22,12 +22,11 @@ public class UniversityRating {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "university_id")
-    private University university;
+    private Professor professor;
 
-    public UniversityRating(String comment, Student student, University university) {
+    public ProfessorRating(String comment, Student student, Professor professor) {
         this.comment = comment;
         this.student = student;
-        this.university = university;
+        this.professor = professor;
     }
 }

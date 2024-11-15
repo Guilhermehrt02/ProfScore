@@ -1,4 +1,4 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

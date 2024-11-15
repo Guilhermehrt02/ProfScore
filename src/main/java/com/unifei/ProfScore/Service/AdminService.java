@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminService /*extends ServiceBase<Administrator, Integer, AdminRepository> */{
+public class AdminService{
 
     @Autowired
     private AdminRepository adminRepository;
@@ -24,7 +24,7 @@ public class AdminService /*extends ServiceBase<Administrator, Integer, AdminRep
         return adminRepository.findAll();
     }
 
-    public Administrator register(Administrator administrator) {
+    public Administrator create(Administrator administrator) {
 
         if (adminRepository.findByEmail(administrator.getEmail()).isPresent()) {
             throw new IllegalArgumentException("Email already registered - " + administrator.getEmail());
@@ -36,16 +36,26 @@ public class AdminService /*extends ServiceBase<Administrator, Integer, AdminRep
 
     public Administrator update(int id, Administrator updatedAdministrator) {
 
-        Optional<Administrator> result = adminRepository.findByEmail(updatedAdministrator.getEmail());
+        //verify if the administrator exists
+        Administrator existingAdministrator = getById(id);
 
-        if (result.isPresent() && result.get().getId() != id) {
-            throw new IllegalArgumentException("Email already registered - " + updatedAdministrator.getEmail());
+        //verify if the email provided is associated with another administrator
+        if (updatedAdministrator.getEmail() != null) {
+
+            Optional<Administrator> result = adminRepository.findByEmail(updatedAdministrator.getEmail());
+
+            if (result.isPresent() && result.get().getId() != id) {
+                throw new IllegalArgumentException("Email already registered - " + updatedAdministrator.getEmail());
+            }
+
+            existingAdministrator.setEmail(updatedAdministrator.getEmail());
         }
 
-        Administrator existingAdministrator = getById(id);
-        existingAdministrator.setName(updatedAdministrator.getName());
-        existingAdministrator.setEmail(updatedAdministrator.getEmail());
-        existingAdministrator.setPassword(updatedAdministrator.getPassword());
+        if (updatedAdministrator.getName() != null)
+            existingAdministrator.setName(updatedAdministrator.getName());
+
+        if (updatedAdministrator.getPassword() != null)
+            existingAdministrator.setPassword(updatedAdministrator.getPassword());
 
         return adminRepository.save(existingAdministrator);
     }

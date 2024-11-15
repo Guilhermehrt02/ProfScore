@@ -1,4 +1,4 @@
-package com.unifei.ProfScore.entity;
+package com.unifei.ProfScore.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ReportModel {
+public class Faq {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class ReportModel {
 
     private String content;
 
-    public ReportModel(String title, String content) {
+    public Faq(String title, String content) {
         this.title = title;
         this.content = content;
     }

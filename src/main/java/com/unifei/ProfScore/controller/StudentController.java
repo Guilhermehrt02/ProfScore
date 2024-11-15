@@ -2,6 +2,8 @@ package com.unifei.ProfScore.controller;
 
 import com.unifei.ProfScore.Service.StudentService;
 import com.unifei.ProfScore.domain.Student;
+import com.unifei.ProfScore.dto.Student.StudentCreateDTO;
+import com.unifei.ProfScore.dto.Student.StudentUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,14 +33,14 @@ public class StudentController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> registerStudent(@RequestBody Student student) {
+    public ResponseEntity<?> registerStudent(@RequestBody StudentCreateDTO student) {
 
-        Student newStudent = studentService.register(student);
+        Student newStudent = studentService.create(student);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStudent);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody Student updatedClient) {
+    public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody StudentUpdateDTO updatedClient) {
 
         Student student = studentService.update(id, updatedClient);
 
