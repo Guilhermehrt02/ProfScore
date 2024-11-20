@@ -1,4 +1,16 @@
 package com.unifei.ProfScore.dto.Feedback;
 
-public class FeedbackCreateDTO {
+import lombok.Data;
+
+@Data
+public class FeedbackDTO {
+
+    private String feedback;
+    private int studentId;
+
+    public FeedbackDTO(String feedback, int studentId) {
+        this.feedback = feedback;
+        this.studentId = studentId;
+    }
+
 }
