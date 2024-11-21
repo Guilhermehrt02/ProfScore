@@ -1,5 +1,6 @@
 package com.unifei.ProfScore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Professor {
     private float score;
 
     @OneToMany(mappedBy = "professor")
+    @JsonIgnore
     private List<ProfessorRating> rating = new ArrayList<>();
 
     public Professor(String name) {

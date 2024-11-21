@@ -34,6 +34,7 @@ public class University {
     private List<Course> courses = new ArrayList<>();
 
     @OneToMany(mappedBy = "university")
+    @JsonIgnore
     private List<UniversityRating> rating = new ArrayList<>();
 
     public University(String name, String city) {

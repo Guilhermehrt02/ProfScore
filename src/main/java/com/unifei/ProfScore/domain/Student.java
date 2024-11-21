@@ -1,5 +1,6 @@
 package com.unifei.ProfScore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unifei.ProfScore.model.Course;
 import com.unifei.ProfScore.model.Feedback;
 import com.unifei.ProfScore.model.ProfessorRating;
@@ -24,12 +25,15 @@ import java.util.List;
 public class Student extends User {
 
     @OneToMany(mappedBy = "student")
+    @JsonIgnore
     private List<ProfessorRating> profRatings = new ArrayList<>();
 
     @OneToMany
+    @JsonIgnore
     private List<UniversityRating> uniRatings = new ArrayList<>();
 
     @OneToMany
+    @JsonIgnore
     private List<Feedback> feedbacks = new ArrayList<>();
 
     @OneToOne

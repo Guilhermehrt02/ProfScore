@@ -1,5 +1,6 @@
 package com.unifei.ProfScore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unifei.ProfScore.model.ReportModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -15,6 +16,7 @@ import java.util.List;
 public class Administrator extends User {
 
     @OneToMany
+    @JsonIgnore
     private List<ReportModel> reports = new ArrayList<>();
 
     public Administrator(String name, String email, String password) {
