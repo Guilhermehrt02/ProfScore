@@ -2,13 +2,14 @@ package com.unifei.ProfScore.model;
 
 import com.unifei.ProfScore.domain.Student;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class ProfessorRating {
 
@@ -17,6 +18,8 @@ public class ProfessorRating {
     private int id;
 
     private String comment;
+
+    private int rating;
 
     @ManyToOne
     private Student student;
