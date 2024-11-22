@@ -18,6 +18,8 @@ public class UniversityRating {
 
     private String comment;
 
+    private int rating;
+
     @ManyToOne
     private Student student;
 
@@ -25,8 +27,8 @@ public class UniversityRating {
     @JoinColumn(name = "university_id")
     private University university;
 
-    public UniversityRating(String comment, Student student, University university) {
-        this.comment = comment;
+    public UniversityRating(int rating, Student student, University university) {
+        this.rating = rating;
         this.student = student;
         this.university = university;
     }

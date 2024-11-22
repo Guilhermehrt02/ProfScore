@@ -29,6 +29,10 @@ public class University {
 
     private String city;
 
+    private int totalRatings = 0;
+
+    private int sumRatings = 0;
+
     @OneToMany(mappedBy = "university")
     @JsonIgnore // Evitar loop infinito
     private List<Course> courses = new ArrayList<>();

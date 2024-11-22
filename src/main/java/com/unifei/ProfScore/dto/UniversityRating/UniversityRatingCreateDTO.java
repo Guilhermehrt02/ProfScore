@@ -9,12 +9,14 @@ public class UniversityRatingCreateDTO {
     private int universityId;
     @NotBlank
     private int studentId;
+    @NotBlank
+    private Integer rating;
     private String comment;
 
-    public UniversityRatingCreateDTO(int universityId, int studentId, String rating) {
+    public UniversityRatingCreateDTO(int universityId, int studentId, int rating) {
         this.universityId = universityId;
         this.studentId = studentId;
-        this.comment = rating;
+        this.rating = rating;
     }
 
 }

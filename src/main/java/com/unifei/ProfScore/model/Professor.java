@@ -20,6 +20,10 @@ public class Professor {
 
     private float score;
 
+    private int totalRatings = 0;
+
+    private int sumRatings = 0;
+
     @OneToMany(mappedBy = "professor")
     @JsonIgnore
     private List<ProfessorRating> rating = new ArrayList<>();

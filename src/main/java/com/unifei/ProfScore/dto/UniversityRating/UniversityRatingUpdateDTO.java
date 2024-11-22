@@ -6,12 +6,11 @@ import lombok.Data;
 public class UniversityRatingUpdateDTO {
 
     private String comment;
+    private Integer rating;
 
-    public UniversityRatingUpdateDTO(String comment) {
+    public UniversityRatingUpdateDTO(String comment, int rating) {
         this.comment = comment;
+        this.rating = rating;
     }
 
-    public String getComment() {
-        return comment;
-    }
 }
