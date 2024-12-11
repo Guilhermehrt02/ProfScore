@@ -5,9 +5,12 @@ import com.unifei.ProfScore.dto.Student.StudentCreateDTO;
 import com.unifei.ProfScore.dto.Student.StudentUpdateDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentService {
     Student getById(int id);
+
+    Optional<Student> getByEmail(String email);
 
     List<Student> getAll();
 

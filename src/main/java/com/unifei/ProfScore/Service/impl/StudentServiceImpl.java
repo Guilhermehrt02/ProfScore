@@ -38,6 +38,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Optional<Student> getByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
+
+    @Override
     public List<Student> getAll() {
         return studentRepository.findAll();
     }
