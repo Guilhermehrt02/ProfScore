@@ -9,5 +9,4 @@ public class ProfScoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProfScoreApplication.class, args);
 	}
-
 }

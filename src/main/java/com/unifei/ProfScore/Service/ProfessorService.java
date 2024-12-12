@@ -1,11 +1,9 @@
 package com.unifei.ProfScore.Service;
 
-import com.unifei.ProfScore.dto.Professor.ProfessorCreateDTO;
-import com.unifei.ProfScore.dto.Professor.ProfessorResponseDTO;
-import com.unifei.ProfScore.dto.Professor.ProfessorUpdateDTO;
-import com.unifei.ProfScore.model.Professor;
-
 import java.util.List;
+
+import com.unifei.ProfScore.dto.Professor.ProfessorResponseDTO;
+import com.unifei.ProfScore.model.Professor;
 
 public interface ProfessorService {
     Professor getById(int id);

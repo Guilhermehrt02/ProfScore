@@ -7,25 +7,25 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
-      - '15432:5432'
+      - '5433:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - internal_network
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@localhost.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    depends_on:
-      - database
-    ports:
-      - "8081:80"
-    networks:
-      - internal_network
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: pgadmin
+  #   restart: always
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@localhost.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - "8081:80"
+  #   networks:
+  #     - internal_network
 
 networks:
   internal_network:
