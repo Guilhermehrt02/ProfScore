@@ -52,20 +52,20 @@ public class ProfessorServiceImpl implements ProfessorService {
             existingProfessor.setName(professor.getName());
         }
 
-        if (professor.getName() != null && !professor.getName().isBlank()) {
-
-            Professor newProfessor = professorRepository.findByName(professor.getName())
-                    .orElseThrow(() -> new IllegalArgumentException(
-                            "Professor not found with name: " + professor.getName()));
-
-            if (professorRepository.findByName(professor.getName()).isPresent()) {
-                throw new IllegalArgumentException("Professor already exists: " + professor.getName() +
-                        " in professor: " + newProfessor.getName());
-            }
-
-            existingProfessor.setName(professor.getName());
-            existingProfessor.setScore(professor.getScore());
-        }
+//        if (professor.getName() != null && !professor.getName().isBlank()) {
+//
+//            Professor newProfessor = professorRepository.findByName(professor.getName())
+//                    .orElseThrow(() -> new IllegalArgumentException(
+//                            "Professor not found with name: " + professor.getName()));
+//
+//            if (professorRepository.findByName(professor.getName()).isPresent()) {
+//                throw new IllegalArgumentException("Professor already exists: " + professor.getName() +
+//                        " in professor: " + newProfessor.getName());
+//            }
+//
+//            existingProfessor.setName(professor.getName());
+//
+//        }
 
         return professorRepository.save(existingProfessor);
     }
